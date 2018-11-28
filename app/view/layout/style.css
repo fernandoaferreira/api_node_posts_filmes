@@ -1,0 +1,38 @@
+h1 {
+    color: red;
+  }
+
+.posts {
+    height: 550px;
+    margin-top: 50px;
+    position: initial;
+    
+}
+
+.conteudo {
+    word-wrap: break-word
+}
+
+.perfil {
+    float: left;
+    position: absolute;
+    width: 800px;
+    top: 30px;
+    margin-left: 620px;
+}
+
+.foto-perfil {
+    float: left;
+    position: absolute;
+    top: 25px;
+    margin-left: 350px;
+}
+
+.poster {
+    margin-top: 125px;
+}
+
+.botao {
+    position: relative;
+    margin-bottom: unset;
+}

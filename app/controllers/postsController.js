@@ -3,6 +3,7 @@ const deletePost = require('../dataBaseMongo/repositorios/deleteById.repo');
 const findAllPost = require('../dataBaseMongo/repositorios/findAllPosts.repo');
 const findByIdPost = require('../dataBaseMongo/repositorios/findByIdPost.repo');
 const updateByIdPost = require('../dataBaseMongo/repositorios/updateById.repo');
+const createFilmeImdb = require('../dataBaseMongo/repositorios/createFilme.repo');
 
 const serviceInfoFilme = require('../service/infoFilmesOMBbapi');
 
@@ -31,10 +32,12 @@ module.exports.listarPostsById = async (req, res) => {
 
         const imdbInfo = await serviceInfoFilme.getInfoFilmes(post.movie_title);
 
+        await createFilmeImdb.criarFilme(imdbInfo);
+
         if (imdbInfo.Error) {
             res.status(200).json({
                 post: post,
-                imdbInfo: 'omdbapi não tem informações do filme.'
+                imdbInfo: 'omdbApi não tem informações do filme.'
             });
         } else {
             res.status(200).json({

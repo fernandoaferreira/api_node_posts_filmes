@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const consign = require('consign');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
@@ -20,6 +21,9 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(expressValidator());
+
+app.set('view engine', 'pug');
+app.set('views', path.join(__dirname, '../app/view'));
 
 consign()
 	.include('app/routes')

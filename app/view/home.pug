@@ -1,0 +1,21 @@
+extends ./layout/main
+
+block content
+    
+    div(class="container")            
+        div(class="row")
+            each post in posts
+                div(class="col-4 col-md-4 posts")
+                    a(href=`http://localhost:3000/post/${post.id}`) #{post.titulo}
+                    p Autor: #{post.autor} Data: #{post.data_criacao}
+                    p(class="card-text conteudo")= post.post_conteudo 
+                    a(href="#" class="btn btn-primary botao") #{post.comentarios.length} comentario
+                div(class="col-6 col-md-6")
+                    img(class="card-img-top poster" src="http://placehold.it/230sx350" alt="Card image cap")    
+    
+            //- Sobre mim Widget
+        div(class="col-md-4 perfil")
+            div(class="card my-4")
+            h5(class="card-header") Sobre mim
+            div(class="card-body") Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
+            img(class="card-img-top foto-perfil" src="http://placehold.it/230sx350" alt="Card image cap")
