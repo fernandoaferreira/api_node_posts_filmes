@@ -1,23 +1,33 @@
 extends ./layout/main
 
 block content
-
+    a(href=`http://localhost:3000/home`) Voltar para Home
     div(class="container")            
             div(class="row")
                     div(class="col-4 col-md-4 posts")
-                        h4 Titulo
-                        p Autor: Autor Data: Data
-                        p(class="card-text conteudo") conteudo
+                        h4 Analise do Filme: #{post.movie_title}
+                        p Autor: #{post.autor} Data: #{post.data_criacao}
+                        p(class="card-text conteudo")= post.post_conteudo 
                     div(class="col-6 col-md-6")
-                        img(class="card-img-top poster" src="http://placehold.it/230sx350" alt="Card image cap")    
-                        p Filme
-                        p Ano
-                        p Diretor
-                        p Nota
+                        img(class="card-img-top poster" src=`${info.Poster}` alt="Card image cap")    
+                        p Filme: #{info.Title}
+                        p Ano: #{info.Year}
+                        p Diretor: #{info.Director}
+                        p Nota: #{info.imdbRating}
                         
             div(class="row")
-                p Comentarios
-                
+                h3 Comentarios (#{comentarios.length})
+            each coment in comentarios
+                div(class="row coment") 
+                    div(class="col-2 col-md-2")
+                        img(class="card-img-top avatar-img" src="http://placehold.it/100sx100" alt="Card image cap")
+                    div(class="col-2 col-md-2 autor-comentario")
+                        p Por: #{coment.autor}
+                    div(class="col-2 col-md-2 data-comentario")
+                        p Data: #{coment.data}
+                    div(class="col-8 conteudo-comentario")
+                        p #{coment.conteudo}
+                    hr
             div(class="col-md-4 perfil")
                 div(class="card my-4")
                 h5(class="card-header") Sobre mim

@@ -2,7 +2,10 @@ const mongo = require('../conectaBanco/conectMongo');
 
 const filmeSchema = new mongo.Schema({
 
-    Title: String,
+    Title: {
+        type: String,
+        uppercase: true
+    },
     Year: String,
     Rated: String,
     Released: String,

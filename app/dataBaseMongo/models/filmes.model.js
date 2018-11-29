@@ -9,7 +9,6 @@ const PostsSchema = new mongo.Schema({
     },
     post_conteudo: {
         type: String,
-        required: true,
         lowercase: true
     },
     autor: {
@@ -28,9 +27,9 @@ const PostsSchema = new mongo.Schema({
         lowercase: true
     },
     comentarios: [{
-        id: String,
-        nome_do_autor: String,
-        conteudo: String
+        autor: String,
+        data: String,
+        conteudo: String,
     }]
 
 });

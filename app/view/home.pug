@@ -6,10 +6,10 @@ block content
         div(class="row")
             each post in posts
                 div(class="col-4 col-md-4 posts")
-                    a(href=`http://localhost:3000/post/${post.id}`) #{post.titulo}
+                    a(href=`http://localhost:3000/post/${post.id}` class="titulo") Analise do Filme: #{post.movie_title}
                     p Autor: #{post.autor} Data: #{post.data_criacao}
                     p(class="card-text conteudo")= post.post_conteudo 
-                    a(href="#" class="btn btn-primary botao") #{post.comentarios.length} comentario
+                    button(href="#" class="btn btn-secondary botao") #{post.comentarios.length} comentario
                 div(class="col-6 col-md-6")
                     img(class="card-img-top poster" src="http://placehold.it/230sx350" alt="Card image cap")    
     
